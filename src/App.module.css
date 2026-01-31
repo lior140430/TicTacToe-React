@@ -1,0 +1,23 @@
+.container {
+    background-color: #242424;
+    color: rgba(255, 255, 255, 0.87);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.gameBoard {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    background: #2a2a2a;
+    border-radius: 12px;
+}
