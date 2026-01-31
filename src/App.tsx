@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import styles from './App.module.css';
+import { Board } from './components/board/Board';
+import type { Player } from './components/Square/Square';
+import { Examples } from './Examples';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [squares, setSquares] = useState<Player[]>(Array(9).fill(null));
+
+  function handlePlay(i: number) {
+    const nextSquares = squares.slice();
+    nextSquares[i] = 'X';
+    setSquares(nextSquares);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className={styles.container}>
+      <div className={styles.game}>
+        <div className={styles.gameBoard}>
+          <Board squares={squares} onPlay={handlePlay} />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+      <div style={{ marginTop: '50px', borderTop: '1px solid #444', width: '100%' }}>
+        <Examples />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
+
 
 export default App
