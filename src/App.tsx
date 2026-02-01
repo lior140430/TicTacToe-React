@@ -28,7 +28,7 @@ function App() {
       <div className={styles.game}>
         <div className={styles.status}>{statusMessages[status]}</div>
         <div className={styles.gameBoard}>
-          <Board squares={squares} onPlay={handlePlay} winningLine={winnerResult?.line} isDraw={status === 'draw'} />
+          <Board squares={squares} onPlay={handlePlay} winningLine={winnerResult?.line} status={status} />
         </div>
         <button className={styles.resetButton} onClick={resetGame}>Restart Game</button>
       </div>
