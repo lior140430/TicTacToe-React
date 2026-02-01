@@ -1,4 +1,4 @@
-import { Player, Square } from '../Square/Square';
+import { type Player, Square } from '../Square/Square';
 import styles from './Board.module.css';
 
 interface BoardProps {
