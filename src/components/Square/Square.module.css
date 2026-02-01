@@ -33,13 +33,8 @@
 }
 
 .square:disabled {
-    cursor: default;
+    cursor: not-allowed;
     background-color: #1a1a1a;
-}
-
-.square:disabled:hover {
-    background-color: #1a1a1a;
-    cursor: default;
 }
 
 .winningSquare.square:disabled {
@@ -113,4 +108,7 @@
 
 .drawAnimation {
     animation: drawFlash 0.5s ease-in-out;
+    background-color: rgba(255, 165, 0, 0.1);
+    border-color: #ffa500;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.6);
 }
