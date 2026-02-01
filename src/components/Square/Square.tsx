@@ -7,6 +7,7 @@ interface SquareProps {
     value: Player;
     onSquareClick: () => void;
     isDraw?: boolean;
+    isWinningSquare?: boolean;
 }
 
 const XIcon = () => (
@@ -25,10 +26,14 @@ const shape = {
     X: <XIcon />,
     O: <OIcon />,
 }
-export function Square({ value, onSquareClick, isDraw }: SquareProps) {
+export function Square({ value, onSquareClick, isDraw, isWinningSquare }: SquareProps) {
 
     return (
-        <button className={`${styles.square} ${isDraw ? styles.drawAnimation : ''}`} onClick={onSquareClick}>
+        <button
+            className={`${styles.square} ${isDraw ? styles.drawAnimation : ''} ${isWinningSquare ? styles.winningSquare : ''}`}
+            onClick={onSquareClick}
+            disabled={value !== null}
+        >
             {value && shape[value]}
         </button>
     );
